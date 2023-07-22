@@ -1,0 +1,49 @@
+buildscript {
+	ext {
+		springBootVersion = '3.0.0'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath "io.spring.gradle:dependency-management-plugin:1.1.0.RELEASE"
+	}
+}
+
+subprojects {
+	group = 'com.prgrms'
+	version = '0.0.1-SNAPSHOT'
+
+	apply plugin: 'java'
+	apply plugin: 'io.spring.dependency-management'
+	apply plugin: 'org.springframework.boot'
+
+	sourceCompatibility = '17'
+
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+		testImplementation('org.springframework.boot:spring-boot-starter-test')
+	}
+}
+
+project(':api') {
+	dependencies {
+		implementation project(':common')
+	}
+}
+
+project(':batch') {
+	dependencies {
+		implementation project(':common')
+	}
+}
+
+project(':admin') {
+	dependencies {
+		implementation project(':common')
+	}
+}

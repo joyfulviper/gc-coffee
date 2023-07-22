@@ -1,0 +1,12 @@
+
+spring:
+  batch:
+    jdbc:
+      initialize-schema: ALWAYS
+    job:
+      enabled: false
+      names: ${job.name:NONE}
+  datasource:
+    url: jdbc:mysql://localhost:3307/gccoffee
+    username: root
+    password: 1234
