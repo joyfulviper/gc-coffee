@@ -8,6 +8,6 @@ public class GithubActionHealthCheck {
 
     @GetMapping("/api/v1/health")
     public String check() {
-        return "헬스체크";
+        return "헬스체크2";
     }
 }
